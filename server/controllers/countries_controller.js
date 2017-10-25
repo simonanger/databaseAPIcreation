@@ -9,4 +9,14 @@ countriesRouter.get("/", function(req, res) {
   });
 })
 
+countriesRouter.post("/", function (req, res) {
+  var country = req.body
+  // console.log('country in POST route', country)
+  helper.save(country, function(updatedCountries) {
+    res.json(updatedCountries)
+  })
+})
+
+
+
 module.exports = countriesRouter;
