@@ -4,7 +4,7 @@ var renderList = function (countries) {
   // This is grubby:
   bucket.innerHTML = ''
 
-  var list = document.createElement('ul')
+  var list = document.getElementById('bucket')
 
   countries.forEach(function (country) {
     var listItem = document.createElement('li')
