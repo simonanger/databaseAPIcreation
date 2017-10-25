@@ -12,6 +12,20 @@ var countriesQueryHelper = {
         onQueryFinished(docs)
       })
     })
+  },
+  save: function (countryData, onQueryFinished) {
+    console.log('hiya')
+    MongoClient.connect(this.url, function (err, db) {
+
+      var countryCollection = db.collection('countries')
+
+      countryCollection.insert(countryData)
+
+      countryCollection.find().toArray(function (err, docs) {
+        onQueryFinished(docs)
+      })
+
+    })
   }
 }
 
